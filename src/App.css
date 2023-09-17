@@ -463,7 +463,9 @@ footer {
   color: #161616;
 }
 
-.host--van--photos, .host--van--info, .host--van--pricing {
+.host--van--photos,
+.host--van--info,
+.host--van--pricing {
   margin-left: 2em;
 }
 
@@ -498,4 +500,37 @@ footer {
   border-radius: 5px;
   width: 200px;
   height: 200px;
+}
+
+.vans--type--nav {
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.vans--type--nav button {
+  color: #4D4D4D;
+  text-align: center;
+  font-family: Inter;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-radius: 5px;
+  background: #FFEAD0;
+  padding: 0.3em 1em;
+  border: none;
+  margin-right: 1em;
+}
+
+.simple--vans--btn:hover {
+  color: white;
+  background: #E17654;
+}
+
+.luxury--vans--btn:hover {
+  color: white;
+  background: #161616;
+}
+
+.rugged--vans--btn:hover {
+  color: white;
+  background: #115E59;
 }
