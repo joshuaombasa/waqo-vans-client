@@ -525,12 +525,29 @@ footer {
   background: #E17654;
 }
 
+.simple--vans--selected {
+  background: #E17654;
+}
+
 .luxury--vans--btn:hover {
   color: white;
   background: #161616;
 }
 
+.luxury--vans--selected {
+  background: #161616;
+}
+
+
 .rugged--vans--btn:hover {
   color: white;
   background: #115E59;
+}
+
+.rugged--vans--selected {
+  background: #115E59;
+}
+
+.red {
+  color: red;
 }
