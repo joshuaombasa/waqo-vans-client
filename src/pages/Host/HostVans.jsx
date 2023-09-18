@@ -9,7 +9,7 @@ export default function HostVans() {
         fetch("http://localhost:3000/api/host/vans")
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+               
                 setVansData(data)
             })
     },[])
