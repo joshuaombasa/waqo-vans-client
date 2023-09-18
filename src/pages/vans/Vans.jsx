@@ -25,7 +25,7 @@ export default function Vans() {
     }
 
     const vanElements = filteredVans.map(van => (
-        <VansPageVan key={van.id} van={van} />
+        <VansPageVan key={van.id} van={van} serchParams={serchParams.toString()} typeFilter={typeFilter} />
     ))
 
     function handleSearchParams(key, value) {
