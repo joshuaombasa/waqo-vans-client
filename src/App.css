@@ -507,7 +507,9 @@ footer {
   margin-bottom: 2em;
 }
 
-
+.vans--type--nav button {
+  cursor: pointer;
+}
 
 .simple--vans--btn,
 .luxury--vans--btn,
@@ -531,7 +533,8 @@ footer {
 }
 
 .simple--vans--selected {
-  background: #E17654;
+  background-color: #E17654;
+  color: white;
 }
 
 .luxury--vans--btn:hover {
@@ -541,6 +544,7 @@ footer {
 
 .luxury--vans--selected {
   background: #161616;
+  color: white;
 }
 
 
@@ -551,10 +555,7 @@ footer {
 
 .rugged--vans--selected {
   background: #115E59;
-}
-
-.red {
-  color: red;
+  color: white;
 }
 
 .clear--filters--btn {
