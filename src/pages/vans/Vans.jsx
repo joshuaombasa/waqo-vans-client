@@ -30,7 +30,7 @@ export default function Vans() {
 
     function handleSearchParams(key, value) {
         setSearchParams(prevSearchParams => {
-            if (value === false) {
+            if (!value) {
                  prevSearchParams.delete(key)
             } else {
                  prevSearchParams.set(key, value)
@@ -59,9 +59,9 @@ export default function Vans() {
                     onClick={() => handleSearchParams("type", "rugged")}
                 >Rugged</button>
                 <button 
-                    className={`rugged--vans--selected`}
-                    onClick={() => handleSearchParams("type", "rugged")}
-                >Rugged</button>
+                    className="clear--filters--btn"
+                    onClick={() => handleSearchParams("type", null)}
+                >Clear filters</button>
             </nav>
                 <section className="vans--page--container">
                     {vansData && vanElements}
