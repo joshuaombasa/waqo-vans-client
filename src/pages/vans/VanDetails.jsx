@@ -4,7 +4,7 @@ import { useParams, Link, useLocation } from "react-router-dom";
 
 export default function VanDetails() {
     const location = useLocation()
-    console.log(location.state)
+
     const [vanData, setVanData] = React.useState(null)
 
     const params = useParams()
@@ -37,7 +37,7 @@ export default function VanDetails() {
     }
 
     const backVansFilter = location.state.search === "" ? "" : location.state.search
-    const backVansType = location.state.typeFilter === "" ? "" : location.state.typeFilter
+    const backVansType = location.state.typeFilter === null ? "all" : location.state.typeFilter
 
     return (
         <div className="van--details--page">
