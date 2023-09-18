@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-export default function VansPageVan({ van }) {
+export default function VansPageVan({ van,serchParams, typeFilter }) {
 
     let color
     if (van.type === "luxury") {
@@ -16,9 +16,11 @@ export default function VansPageVan({ van }) {
         backgroundColor: color
     }
 
+    
+
     return (
         <div>
-            <Link to={`${van.id}`} className="vans--page--van--container">
+            <Link to={`${van.id}`} state={{ search: serchParams, typeFilter : typeFilter }} className="vans--page--van--container">
                 <img src={van.imageUrl} alt="" />
                 <div className="vans--page--van--container--desc">
                     <h3>{van.name}</h3>
