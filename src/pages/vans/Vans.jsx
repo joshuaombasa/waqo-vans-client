@@ -47,15 +47,19 @@ export default function Vans() {
             <h1 className="bold--text">Explore our van options</h1>
             <nav className="vans--type--nav">
                 <button 
-                    className="simple--vans--btn"
+                    className={`simple--vans--btn red${typeFilter === "simple" ? "red" : null}`}
                     onClick={() => handleSearchParams("type", "simple")}
                 >Simple</button>
                 <button 
-                    className="luxury--vans--btn"
+                    className={`luxury--vans--btn ${typeFilter === "luxury" && "luxury--vans--selected"}`}
                     onClick={() => handleSearchParams("type", "luxury")}
                 >Luxury</button>
                 <button 
-                    className="rugged--vans--btn"
+                    className={`rugged--vans--btn ${typeFilter === "rugged" && "rugged--vans--selected"}`}
+                    onClick={() => handleSearchParams("type", "rugged")}
+                >Rugged</button>
+                <button 
+                    className={`rugged--vans--selected`}
                     onClick={() => handleSearchParams("type", "rugged")}
                 >Rugged</button>
             </nav>
