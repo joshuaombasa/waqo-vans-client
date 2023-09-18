@@ -15,7 +15,7 @@ export default function Vans() {
         fetch("http://localhost:3000/api/vans")
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+
                 setVansData(data)
             })
     }, [])
@@ -47,7 +47,7 @@ export default function Vans() {
             <h1 className="bold--text">Explore our van options</h1>
             <nav className="vans--type--nav">
                 <button 
-                    className={`simple--vans--btn red${typeFilter === "simple" ? "red" : null}`}
+                    className={`simple--vans--btn ${typeFilter === "simple" ? "simple--vans--selected" : null}`}
                     onClick={() => handleSearchParams("type", "simple")}
                 >Simple</button>
                 <button 
