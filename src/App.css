@@ -600,3 +600,10 @@ footer {
   font-style: normal;
   font-weight: 700;
 }
+
+.error--page--container {
+  color: #201F1D;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400;
+}
