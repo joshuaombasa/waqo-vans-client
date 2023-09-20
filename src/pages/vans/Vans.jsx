@@ -1,32 +1,38 @@
 import React from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useLoaderData } from "react-router-dom";
 import VansPageVan from "../../components/VansPageVan";
 import { getVans } from "../../api";
 
+export function loader() {
+    const data = getVans()
+    return data
+}
+
 export default function Vans() {
 
-    const [vansData, setVansData] = React.useState([])
+    // const [vansData, setVansData] = React.useState([])
     const [serchParams, setSearchParams] = useSearchParams()
     const typeFilter = serchParams.get("type")
+    const vansData = useLoaderData() 
 
     const filteredVans = typeFilter ? vansData.filter(van => van.type === typeFilter) : vansData
 
-    React.useEffect(() => {
-        async function loadData() {
-            try {
-                const data = await getVans()
-                setVansData(data)
-            } catch (error) {
-                console.log(error)
-            }
-        }
+    // React.useEffect(() => {
+    //     async function loadData() {
+    //         try {
+    //             const data = await getVans()
+    //             setVansData(data)
+    //         } catch (error) {
+    //             console.log(error)
+    //         }
+    //     }
 
-        loadData()
-    }, [])
+    //     loadData()
+    // }, [])
 
-    if (!vansData) {
-        return <h1>Loading...</h1>
-    }
+    // if (!vansData) {
+    //     return <h1>Loading...</h1>
+    // }
 
     const vanElements = filteredVans.map(van => (
         <VansPageVan key={van.id} van={van} serchParams={serchParams.toString()} typeFilter={typeFilter} />
