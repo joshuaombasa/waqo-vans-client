@@ -4,7 +4,7 @@ import './App.css'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import About from './pages/About'
-import Vans from './pages/vans/Vans'
+import Vans, { loader as vansLoader} from './pages/vans/Vans'
 import VanDetails from './pages/vans/VanDetails'
 import Dashboard from './pages/Host/Dashboard'
 import Income from './pages/Host/Income'
@@ -22,7 +22,7 @@ function App() {
     <Route path='/' element={<Layout />}>
       <Route index element={<Home />} />
       <Route path='about' element={<About />} />
-      <Route path='vans' element={<Vans />} />
+      <Route path='vans' element={<Vans />} loader={vansLoader}/>
       <Route path='vans/:id' element={<VanDetails />} />
       <Route path='host' element={<HostLayout />}>
         <Route index element={<Dashboard />} />
