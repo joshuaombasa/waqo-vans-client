@@ -47,7 +47,8 @@ a {
 .about--page,
 .vans--page,
 .van--details--page,
-.not--found--page {
+.not--found--page,
+.login--page {
   width: 100%;
   margin: 0 auto;
 }
@@ -606,4 +607,93 @@ footer {
   font-family: Inter;
   font-style: normal;
   font-weight: 400;
+}
+
+.login--page {
+  min-height: 70vh;
+  display: flex;
+}
+
+.login--page--container {
+  width: 40%;
+  margin: auto;
+}
+
+.login--page--container h1 {
+  color: #685555;
+  text-align: center;
+  font-family: Inter;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.login--form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+}
+
+.login--form .login--btn {
+  margin-top: 2em;
+}
+
+.login--page--container input {
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  padding: 0.5em 0.8em;
+  background: #FFF;
+  color: #4D4D4D;
+  font-family: Inter;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 400;
+  border: 1px solid #4D4D4D;
+}
+
+.login--page--container input:focus {
+  color: #4D4D4D;
+  outline: none;
+  border: 1px solid #4D4D4D;
+}
+
+.login--page--container .email:focus {
+  border-bottom: none;
+}
+
+.login--page--container .email {
+  border-radius: 6px 6px 0px 0px;
+  border-bottom: none;
+}
+
+.login--page--container .password {
+  border-radius: 0px 0px 6px 6px;
+}
+
+.login--form .login--btn {
+  color: #FFF;
+  font-family: Inter;
+  font-size: 1.2rem;
+  border: none;
+  font-style: normal;
+  font-weight: 700;
+  padding: 1.2em 0;
+  border-radius: 6px;
+  background: #FF8C38;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+}
+
+.login--page--container h4 {
+  margin-top: 4em;
+  color: #413737;
+  text-align: center;
+  font-family: Inter;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.layout--container span {
+  color: #FF8C38;
+  font-weight: 700;
 }
