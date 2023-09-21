@@ -1,11 +1,19 @@
 import React from "react";
-import { useParams, Link, useLocation } from "react-router-dom";
+import { useParams, Link, useLocation, useLoaderData } from "react-router-dom";
+import { getVanDetails } from "../../api";
 
+export function loader({params}) {
+    return getVanDetails(params.id)
+}
 
 export default function VanDetails() {
     const location = useLocation()
 
     const [vanData, setVanData] = React.useState(null)
+
+    const info = useLoaderData()
+
+    
 
     const params = useParams()
 
