@@ -28,6 +28,11 @@ export default function Header() {
                     className="nav--link"
                     style={({isActive}) => isActive ? activeStyle : null}
                 >Vans</NavLink>
+                <NavLink 
+                    to="/login" 
+                    className="nav--link"
+                    style={({isActive}) => isActive ? activeStyle : null}
+                >Login</NavLink>
             </nav>
         </header>
     )
