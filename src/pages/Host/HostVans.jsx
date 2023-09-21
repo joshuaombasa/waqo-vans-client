@@ -1,9 +1,17 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
 import HostVanItem from "../../components/HostVanItem";
+import { getHostVans } from "../../api";
+
+export function loader() {
+    return getHostVans()
+}
 
 export default function HostVans() {
 
     const [vansData, setVansData] = React.useState(null)
+
+    const info = useLoaderData()
 
     React.useEffect(() => {
         fetch("http://localhost:3000/api/host/vans")
