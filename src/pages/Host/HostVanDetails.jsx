@@ -1,10 +1,18 @@
 import React from "react";
-import { useParams, Link, NavLink, Outlet } from "react-router-dom";
+import { useParams, Link, NavLink, Outlet, useLoaderData } from "react-router-dom";
+import { getHostVanDetails } from "../../api";
 
+export function loader({params}) {
+    console.log(params)
+    return getHostVanDetails(params.id)
+}
 
 export default function VanDetails() {
 
     const [vanData, setVanData] = React.useState(null)
+
+    const info = useLoaderData()
+    console.log(info)
 
     const params = useParams()
 
@@ -12,7 +20,7 @@ export default function VanDetails() {
         fetch(`http://localhost:3000/api/vans/${params.id}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 setVanData(data)
             })
     }, [])
