@@ -1,11 +1,11 @@
-import React from "react";
-import { useSearchParams, useLoaderData } from "react-router-dom";
+import React, { Suspense } from "react";
+import { useSearchParams, useLoaderData, defer, Await } from "react-router-dom";
 import VansPageVan from "../../components/VansPageVan";
 import { getVans } from "../../api";
 
 export function loader() {
-    const data = getVans()
-    return data
+
+    return defer({ vans: getVans() })
 }
 
 export default function Vans() {
@@ -13,9 +13,7 @@ export default function Vans() {
     // const [vansData, setVansData] = React.useState([])
     const [serchParams, setSearchParams] = useSearchParams()
     const typeFilter = serchParams.get("type")
-    const vansData = useLoaderData() 
-
-    const filteredVans = typeFilter ? vansData.filter(van => van.type === typeFilter) : vansData
+    const dataPromise = useLoaderData()
 
     // React.useEffect(() => {
     //     async function loadData() {
@@ -34,9 +32,7 @@ export default function Vans() {
     //     return <h1>Loading...</h1>
     // }
 
-    const vanElements = filteredVans.map(van => (
-        <VansPageVan key={van.id} van={van} serchParams={serchParams.toString()} typeFilter={typeFilter} />
-    ))
+
 
     function handleSearchParams(key, value) {
         setSearchParams(prevSearchParams => {
@@ -50,9 +46,15 @@ export default function Vans() {
         })
     }
 
+    function renderVans(vansData) {
 
-    return (
-        <div className="vans--page">
+        const filteredVans = typeFilter ? vansData.filter(van => van.type === typeFilter) : vansData
+
+        const vanElements = filteredVans.map(van => (
+            <VansPageVan key={van.id} van={van} serchParams={serchParams.toString()} typeFilter={typeFilter} />
+        ))
+
+        return (
             <div className="vans--wrapper">
                 <h1 className="bold--text">Explore our van options</h1>
                 <nav className="vans--type--nav">
@@ -77,7 +79,17 @@ export default function Vans() {
                     {vansData && vanElements}
                 </section>
             </div>
+        )
+    }
 
+
+    return (
+        <div className="vans--page">
+            <Suspense fallback={<h1>Loading...</h1>}>
+                <Await resolve={dataPromise.vans}>
+                    {renderVans}
+                </Await>
+            </Suspense>
         </div>
     )
 }
